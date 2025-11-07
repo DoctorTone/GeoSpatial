@@ -14,7 +14,7 @@ import {
 const Earth = () => {
   const earthRef = useRef<Group>(null);
   const [day, bump, spec, night] = useTexture([
-    "./textures/2k_earth_daymap.jpg",
+    "./textures/2_no_clouds_8k.jpg",
     "./textures/2k_earth_normal_map.jpg",
     "./textures/2k_earth_specular_map.jpg",
     "./textures/2k_earth_nightmap.jpg",
@@ -55,7 +55,7 @@ const Earth = () => {
   });
 
   return (
-    <group ref={earthRef}>
+    <group ref={earthRef} rotation-x={Math.PI / 8}>
       <mesh material={earthMat}>
         <sphereGeometry args={[10, 64, 64]} />
       </mesh>
