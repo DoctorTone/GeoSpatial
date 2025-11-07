@@ -13,7 +13,6 @@ function App() {
       <Canvas>
         <ResponsiveCamera />
         <Lights />
-        <DaySky />
         <Scene />
         <OrbitControls
           makeDefault
