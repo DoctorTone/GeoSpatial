@@ -1,4 +1,5 @@
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
+import { useFrame } from "@react-three/fiber";
 import { useTexture } from "@react-three/drei";
 import {
   SRGBColorSpace,
@@ -7,9 +8,11 @@ import {
   ClampToEdgeWrapping,
   MeshPhongMaterial,
   Color,
+  Group,
 } from "three";
 
 const Earth = () => {
+  const earthRef = useRef<Group>(null);
   const [day, bump, spec, night] = useTexture([
     "./textures/2k_earth_daymap.jpg",
     "./textures/2k_earth_normal_map.jpg",
@@ -45,10 +48,18 @@ const Earth = () => {
     [day, bump, spec, night]
   );
 
+  useFrame((_, delta) => {
+    if (earthRef.current) {
+      earthRef.current.rotation.y += delta / 10;
+    }
+  });
+
   return (
-    <mesh material={earthMat}>
-      <sphereGeometry args={[10, 64, 64]} />
-    </mesh>
+    <group ref={earthRef}>
+      <mesh material={earthMat}>
+        <sphereGeometry args={[10, 64, 64]} />
+      </mesh>
+    </group>
   );
 };
 
