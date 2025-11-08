@@ -6,6 +6,8 @@ type FrameworkState = {
   setScreenSize: (size: ScreenSize) => void;
   infoDialogOpen: boolean;
   setShowInfoDialog: (status: boolean) => void;
+  autoRotate: boolean;
+  setAutoRotate: (status: boolean) => void;
 };
 
 const useStore = create<FrameworkState>((set) => ({
@@ -14,6 +16,8 @@ const useStore = create<FrameworkState>((set) => ({
     set((state) => ({ screenSize: { ...state.screenSize, ...size } })),
   infoDialogOpen: false,
   setShowInfoDialog: (status) => set(() => ({ infoDialogOpen: status })),
+  autoRotate: true,
+  setAutoRotate: (status) => set(() => ({ autoRotate: status })),
 }));
 
 export default useStore;

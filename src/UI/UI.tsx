@@ -1,13 +1,15 @@
 import Copyright from "../UI/Copyright";
 import Controls from "./Controls";
 import Info from "./Info";
+import Rotate from "./Rotate";
 
 const UI = () => {
   return (
     <>
       <Copyright />
-      <Controls />
+      {/* <Controls /> */}
       <Info />
+      <Rotate />
     </>
   );
 };

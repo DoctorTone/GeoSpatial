@@ -37,13 +37,13 @@ const Earth = () => {
       new MeshPhongMaterial({
         map: day,
         bumpMap: bump,
-        bumpScale: 1,
+        bumpScale: 20,
         specularMap: spec,
-        specular: new Color(0x111111),
-        shininess: 8,
-        emissiveMap: night, // night lights
-        emissive: new Color(0xffffff),
-        emissiveIntensity: 0.35,
+        specular: new Color(0x444444),
+        shininess: 18,
+        // emissiveMap: night, // night lights
+        // emissive: new Color(0xffffff),
+        // emissiveIntensity: 0.35,
       }),
     [day, bump, spec, night]
   );
