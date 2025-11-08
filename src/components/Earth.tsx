@@ -10,6 +10,7 @@ import {
   Color,
   Group,
 } from "three";
+import useStore from "../state/store";
 
 const Earth = () => {
   const earthRef = useRef<Group>(null);
@@ -19,6 +20,7 @@ const Earth = () => {
     "./textures/2k_earth_specular_map.jpg",
     "./textures/2k_earth_nightmap.jpg",
   ]);
+  const rotate = useStore((state) => state.autoRotate);
 
   // texture tuning
   [day, night, spec, bump].forEach((tex) => {
@@ -49,6 +51,8 @@ const Earth = () => {
   );
 
   useFrame((_, delta) => {
+    if (!rotate) return;
+
     if (earthRef.current) {
       earthRef.current.rotation.y += delta / 10;
     }
