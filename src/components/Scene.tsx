@@ -20,7 +20,7 @@ const Scene = () => {
 
   return (
     <>
-      <group dispose={null} ref={earthRef} rotation={[0, 0, 0]}>
+      <group dispose={null} ref={earthRef} rotation={[Math.PI / 8, 0, 0]}>
         <Earth />
         <Lightning />;
       </group>
