@@ -1,5 +1,4 @@
-import { useMemo, useRef, type JSX } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useMemo } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import {
   SRGBColorSpace,
@@ -8,31 +7,15 @@ import {
   ClampToEdgeWrapping,
   MeshPhongMaterial,
   Color,
-  Group,
-  Mesh,
-  MeshStandardMaterial,
 } from "three";
-import useStore from "../state/store";
-import { type GLTF } from "three-stdlib";
-type GLTFResult = GLTF & {
-  nodes: {
-    Sphere: Mesh;
-  };
-  materials: {
-    ["Earth.001"]: MeshStandardMaterial;
-  };
-};
 
-const Earth = (props: JSX.IntrinsicElements["group"]) => {
-  const { nodes } = useGLTF("./models/OpenEarth.glb") as unknown as GLTFResult;
-  const earthRef = useRef<Group>(null);
+const Earth = () => {
   const [day, bump, spec, night] = useTexture([
     "./textures/2_no_clouds_8k.jpg",
     "./textures/2k_earth_normal_map.jpg",
     "./textures/2k_earth_specular_map.jpg",
     "./textures/2k_earth_nightmap.jpg",
   ]);
-  const rotate = useStore((state) => state.autoRotate);
 
   // texture tuning
   [day, night, spec, bump].forEach((tex) => {
@@ -62,20 +45,10 @@ const Earth = (props: JSX.IntrinsicElements["group"]) => {
     [day, bump, spec, night]
   );
 
-  useFrame((_, delta) => {
-    if (!rotate) return;
-
-    if (earthRef.current) {
-      earthRef.current.rotation.y += delta / 10;
-    }
-  });
-
   return (
-    <group {...props} dispose={null} ref={earthRef} rotation={[0, 0, 0]}>
-      <mesh material={earthMat}>
-        <sphereGeometry args={[10, 64, 64]} />
-      </mesh>
-    </group>
+    <mesh material={earthMat}>
+      <sphereGeometry args={[10, 64, 64]} />
+    </mesh>
   );
 };
 
