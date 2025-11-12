@@ -1,5 +1,5 @@
 import { latlonToVec3 } from "../Utils/utils";
-// import points from "./data/lightning_json/month_01.json";
+import points from "../lightning/month_01.json";
 
 const Lightning = () => {
   const pos = latlonToVec3(52.9548, -1.1581, 10.0, 0.01); // radius=1, 0.01 above surface
