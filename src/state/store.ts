@@ -16,7 +16,7 @@ const useStore = create<FrameworkState>((set) => ({
     set((state) => ({ screenSize: { ...state.screenSize, ...size } })),
   infoDialogOpen: false,
   setShowInfoDialog: (status) => set(() => ({ infoDialogOpen: status })),
-  autoRotate: false,
+  autoRotate: true,
   setAutoRotate: (status) => set(() => ({ autoRotate: status })),
 }));
 
