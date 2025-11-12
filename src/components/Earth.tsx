@@ -1,4 +1,4 @@
-import { useMemo, useRef, type JSX, useState } from "react";
+import { useMemo, useRef, type JSX } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF, useTexture } from "@react-three/drei";
 import {
@@ -24,7 +24,6 @@ type GLTFResult = GLTF & {
 };
 
 const Earth = (props: JSX.IntrinsicElements["group"]) => {
-  const [cutout, setCutout] = useState(false);
   const { nodes } = useGLTF("./models/OpenEarth.glb") as unknown as GLTFResult;
   const earthRef = useRef<Group>(null);
   const [day, bump, spec, night] = useTexture([
@@ -46,7 +45,6 @@ const Earth = (props: JSX.IntrinsicElements["group"]) => {
     tex.generateMipmaps = true;
     tex.wrapS = tex.wrapT = ClampToEdgeWrapping;
   });
-  day.flipY = !cutout;
 
   const earthMat = useMemo(
     () =>
@@ -73,20 +71,10 @@ const Earth = (props: JSX.IntrinsicElements["group"]) => {
   });
 
   return (
-    <group {...props} dispose={null} ref={earthRef} rotation-x={Math.PI / 8}>
-      {cutout ? (
-        <mesh
-          scale={10}
-          castShadow
-          receiveShadow
-          geometry={nodes.Sphere.geometry}
-          material={earthMat}
-        />
-      ) : (
-        <mesh material={earthMat}>
-          <sphereGeometry args={[10, 64, 64]} />
-        </mesh>
-      )}
+    <group {...props} dispose={null} ref={earthRef} rotation={[0, 0, 0]}>
+      <mesh material={earthMat}>
+        <sphereGeometry args={[10, 64, 64]} />
+      </mesh>
     </group>
   );
 };
