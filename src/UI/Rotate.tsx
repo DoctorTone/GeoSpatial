@@ -1,6 +1,8 @@
 import { styled } from "@mui/material/styles";
 import Switch, { switchClasses } from "@mui/material/Switch";
 import type { ChangeEvent } from "react";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import useStore from "../state/store";
 
 const RotateSwitch = styled(Switch)({
@@ -19,7 +21,12 @@ const Rotate = () => {
 
   return (
     <div id="rotate" className="panel">
-      <RotateSwitch checked={rotate} onChange={onToggle} />
+      <FormGroup>
+        <FormControlLabel
+          control={<RotateSwitch checked={rotate} onChange={onToggle} />}
+          label="Rotate"
+        />
+      </FormGroup>
     </div>
   );
 };
