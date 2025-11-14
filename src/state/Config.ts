@@ -25,6 +25,16 @@ export const CONFIGURATIONS = {
   extraLarge: new Vector3(0, 0, 20),
 };
 
+export const EARTH = {
+  RADIUS: 10,
+  HEIGHT: 0.01,
+};
+
+export const LIGHTNING = {
+  SIZE: 0.05,
+  SEGMENTS: 16,
+};
+
 export type ScreenSize = {
   width: number;
   height: number;
