@@ -6,12 +6,14 @@ import Lightning from "./Lightning";
 import useStore from "../state/store";
 import { Group } from "three";
 import { monthlyLightning } from "../data/LightningData";
+import { MONTHS } from "../state/Config";
 
 const Scene = () => {
   const [month, setMonth] = useState(0);
   const data = monthlyLightning[month];
   const rotate = useStore((state) => state.autoRotate);
   const earthRef = useRef<Group>(null);
+  const setCurrentMonth = useStore((state) => state.setCurrentMonth);
 
   useFrame((_, delta) => {
     if (!rotate) return;
@@ -28,6 +30,10 @@ const Scene = () => {
 
     return () => clearInterval(intervalID);
   }, []);
+
+  useEffect(() => {
+    setCurrentMonth(MONTHS[month]);
+  }, [month]);
 
   return (
     <>

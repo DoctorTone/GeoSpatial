@@ -25,6 +25,21 @@ export const CONFIGURATIONS = {
   extraLarge: new Vector3(0, 0, 20),
 };
 
+export const MONTHS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 export const EARTH = {
   RADIUS: 10,
   HEIGHT: 0.01,
