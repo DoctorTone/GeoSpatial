@@ -1,12 +1,15 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import Earth from "./Earth";
 import Starfield from "./Starfield";
 import Lightning from "./Lightning";
 import useStore from "../state/store";
 import { Group } from "three";
+import { monthlyLightning } from "../data/LightningData";
 
 const Scene = () => {
+  const [month, setMonth] = useState(0);
+  const data = monthlyLightning[month];
   const rotate = useStore((state) => state.autoRotate);
   const earthRef = useRef<Group>(null);
 
@@ -22,7 +25,7 @@ const Scene = () => {
     <>
       <group dispose={null} ref={earthRef} rotation={[Math.PI / 8, 0, 0]}>
         <Earth />
-        <Lightning />;
+        <Lightning data={data} />;
       </group>
       <Starfield />;
     </>

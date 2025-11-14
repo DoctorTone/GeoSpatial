@@ -9,23 +9,30 @@ import {
 } from "three";
 import { latlonToVec3 } from "../Utils/utils";
 import { EARTH } from "../state/Config";
-import points from "../lightning/month_01.json";
 
+interface LightningProps {
+  data: {
+    lat: number;
+    lon: number;
+    value: number;
+  }[];
+}
 const baseSize = 12;
-const spawnMultiplier = 0.8;
 const lifespan = 0.6;
-const Lightning = () => {
+const spawnMultiplier = 0.8;
+
+const Lightning = ({ data }: LightningProps) => {
   const { positions, weights, weightSum } = useMemo(() => {
     const pos: Vector3[] = [];
     const wts: number[] = [];
-    points.forEach((point) => {
+    data.forEach((point) => {
       pos.push(latlonToVec3(point.lat, point.lon, EARTH.RADIUS, EARTH.HEIGHT));
       wts.push(point.value);
     });
 
     const sum = wts.reduce((a, b) => a + b, 0) || 1;
     return { positions: pos, weights: wts, weightSum: sum };
-  }, [points]);
+  }, [data]);
 
   const maxFlashes = 1200;
 
@@ -116,15 +123,15 @@ const Lightning = () => {
   let writePtr = 0;
   useFrame(({ clock }) => {
     if (!geoRef.current) return;
-    const t = clock.getElapsedTime();
-    (material.uniforms.uTime as any).value = t;
+    const time = clock.getElapsedTime();
+    (material.uniforms.uTime as any).value = time;
 
     const posAttr = geoRef.current.getAttribute("position") as BufferAttribute;
     const aStart = startRef.current!;
     const aLife = lifeRef.current!;
 
     // Global low-frequency modulation (storms come in waves)
-    const global = 0.6 + 0.4 * Math.sin(t * 0.15);
+    const global = 0.6 + 0.4 * Math.sin(time * 0.15);
 
     // Decide how many to try to spawn this frame (scaled by dataset total)
     const targetSpawns = Math.min(
@@ -143,7 +150,7 @@ const Lightning = () => {
       const p = positions[idx];
       posAttr.setXYZ(slot, p.x, p.y, p.z);
 
-      aStart[slot] = t;
+      aStart[slot] = time;
       aLife[slot] = lifespan * (0.75 + Math.random() * 0.5); // slight variation
     }
 
