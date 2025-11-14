@@ -3,6 +3,7 @@ import Controls from "./Controls";
 import Info from "./Info";
 import Rotate from "./Rotate";
 import TimePeriod from "./TimePeriod";
+import Title from "./Title";
 
 const UI = () => {
   return (
@@ -12,6 +13,7 @@ const UI = () => {
       <Info />
       <Rotate />
       <TimePeriod />
+      <Title />
     </>
   );
 };
