@@ -2,6 +2,7 @@ import Copyright from "../UI/Copyright";
 import Controls from "./Controls";
 import Info from "./Info";
 import Rotate from "./Rotate";
+import TimePeriod from "./TimePeriod";
 
 const UI = () => {
   return (
@@ -10,6 +11,7 @@ const UI = () => {
       {/* <Controls /> */}
       <Info />
       <Rotate />
+      <TimePeriod />
     </>
   );
 };

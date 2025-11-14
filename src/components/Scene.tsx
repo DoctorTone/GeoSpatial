@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import Earth from "./Earth";
 import Starfield from "./Starfield";
@@ -20,6 +20,14 @@ const Scene = () => {
       earthRef.current.rotation.y += delta / 10;
     }
   });
+
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+      setMonth((month) => (month + 1) % 12);
+    }, 5000);
+
+    return () => clearInterval(intervalID);
+  }, []);
 
   return (
     <>
