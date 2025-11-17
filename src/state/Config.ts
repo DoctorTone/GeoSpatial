@@ -24,7 +24,7 @@ export const CONFIGURATIONS = {
   ipad_portrait: new Vector3(0, 0, 25),
   ipad_landscape: new Vector3(0, 0, 20),
   tablet: new Vector3(0, 0, 25),
-  large: new Vector3(0, 0.5, 3),
+  large: new Vector3(0, 0, 20),
   extraLarge: new Vector3(0, 0, 20),
 };
 

@@ -71,3 +71,13 @@ body {
     top: 7.5%;
   }
 }
+
+@media (min-width: 1400px) {
+  #title {
+    top: 4%;
+    left: 4%;
+  }
+  #time {
+    top: 4%;
+  }
+}
