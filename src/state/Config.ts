@@ -43,6 +43,7 @@ export const MONTHS = [
 export const EARTH = {
   RADIUS: 10,
   HEIGHT: 0.01,
+  SEGMENTS: 64,
 };
 
 export const LIGHTNING = {

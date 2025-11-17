@@ -8,6 +8,7 @@ import {
   MeshPhongMaterial,
   Color,
 } from "three";
+import { EARTH } from "../state/Config";
 
 const Earth = () => {
   const [day, bump, spec, night] = useTexture([
@@ -47,7 +48,7 @@ const Earth = () => {
 
   return (
     <mesh material={earthMat}>
-      <sphereGeometry args={[10, 64, 64]} />
+      <sphereGeometry args={[EARTH.RADIUS, EARTH.SEGMENTS, EARTH.SEGMENTS]} />
     </mesh>
   );
 };

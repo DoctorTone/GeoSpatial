@@ -3,6 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import Earth from "./Earth";
 import Starfield from "./Starfield";
 import Lightning from "./Lightning";
+import Glow from "./Glow";
 import useStore from "../state/store";
 import { Group } from "three";
 import { monthlyLightning } from "../data/LightningData";
@@ -39,6 +40,7 @@ const Scene = () => {
     <>
       <group dispose={null} ref={earthRef} rotation={[Math.PI / 8, 0, 0]}>
         <Earth />
+        {/* <Glow /> */}
         <Lightning data={data} />;
       </group>
       <Starfield />;

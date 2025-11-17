@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+
 html,
 body,
 #root {
@@ -35,7 +37,17 @@ body {
   top: 5%;
   right: 6%;
 }
+.lightning-text {
+  font-family: "Audiowide", sans-serif;
+  font-size: 2.6rem; /* adjust as needed */
+  color: #f5faff; /* pale electric white-blue */
+  letter-spacing: 2px;
+
+  /* soft glow */
+  text-shadow: 0 0 6px rgba(0, 170, 255, 0.8), 0 0 12px rgba(0, 170, 255, 0.6),
+    0 0 24px rgba(0, 170, 255, 0.4);
+}
 #title {
-  top: 2.5%;
+  top: 0.5%;
   left: 2.5%;
 }

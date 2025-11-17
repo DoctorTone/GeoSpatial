@@ -4,11 +4,11 @@ import BoltIcon from "@mui/icons-material/Bolt";
 const Title = () => {
   return (
     <div id="title" className="panel">
-      <Typography variant="h3" sx={{ color: "orange" }}>
+      <p className="lightning-text">
         <BoltIcon fontSize="large" />
         Lightning
         <BoltIcon fontSize="large" />
-      </Typography>
+      </p>
     </div>
   );
 };
