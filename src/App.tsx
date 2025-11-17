@@ -1,11 +1,12 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { INTERACTIONS, TARGET_POSITION } from "./state/Config";
-import DaySky from "./components/DaySky";
 import Lights from "./components/Lights";
 import ResponsiveCamera from "./components/ResponsiveCamera";
 import Scene from "./components/Scene";
 import UI from "./UI/UI";
+import { Suspense } from "react";
+import Loading from "./UI/Loading";
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
       <Canvas>
         <ResponsiveCamera />
         <Lights />
-        <Scene />
+        <Suspense fallback={<Loading />}>
+          <Scene />
+        </Suspense>
         <OrbitControls
           makeDefault
           enablePan={INTERACTIONS.PAN}

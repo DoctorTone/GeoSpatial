@@ -39,8 +39,8 @@ body {
 }
 .lightning-text {
   font-family: "Audiowide", sans-serif;
-  font-size: 2.6rem; /* adjust as needed */
-  color: #f5faff; /* pale electric white-blue */
+  font-size: 2.6rem;
+  color: #f5faff;
   letter-spacing: 2px;
 
   /* soft glow */
