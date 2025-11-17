@@ -58,3 +58,16 @@ body {
     top: 2%;
   }
 }
+
+@media (min-width: 900px) and (orientation: portrait) {
+  #title {
+    top: 2.5%;
+    left: 2.5%;
+  }
+  #time {
+    top: 2.5%;
+  }
+  #rotate {
+    top: 7.5%;
+  }
+}

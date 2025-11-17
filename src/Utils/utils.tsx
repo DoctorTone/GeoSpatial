@@ -12,18 +12,27 @@ export const getScreenConfiguration = (width: number, height: number) => {
     return CONFIGURATIONS["phone_landscape"];
   }
 
+  // iPad in portrait
+  if (width <= RESOLUTIONS.MEDIUM && width < height) {
+    return CONFIGURATIONS["ipad_portrait"];
+  }
+
+  // iPad in landscape
   if (width <= RESOLUTIONS.LARGE && width > height) {
+    return CONFIGURATIONS["ipad_landscape"];
+  }
+
+  // Large tablet in portrait
+  if (width <= RESOLUTIONS.LARGE && width < height) {
+    return CONFIGURATIONS["tablet"];
+  }
+
+  // Laptop or some macs
+  if (width <= RESOLUTIONS.X_LARGE) {
     return CONFIGURATIONS["large"];
   }
 
-  // if (width <= RESOLUTIONS.LARGE) {
-  //   return CONFIGURATIONS["large"];
-  // }
-
-  // if (width <= RESOLUTIONS.X_LARGE) {
-  //   return CONFIGURATIONS[CONFIG_TYPE.TABLET];
-  // }
-
+  // Desktop
   if (width >= RESOLUTIONS.X_LARGE) {
     return CONFIGURATIONS["extraLarge"];
   }
