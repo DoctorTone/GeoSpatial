@@ -41,28 +41,30 @@ const InfoDialog = () => {
           },
         }}
       >
-        <DialogTitle>Framework Model</DialogTitle>
+        <DialogTitle>Lightning Visualisation</DialogTitle>
         <DialogContent dividers>
           <Typography variant="h6">
+            Earth map from{" "}
             <Link
               variant="h6"
               underline="none"
-              href="https://market.pmnd.rs/model/suzanne-high-poly"
+              href="https://visibleearth.nasa.gov/collection/1484/blue-marble"
               target="_blank"
               rel="noopener"
             >
-              Suzanne{" "}
+              NASA blue marble
             </Link>
-            by pmndrs is licensed under{" "}
+            . Lightning data from{" "}
             <Link
               variant="h6"
               underline="none"
-              href="http://creativecommons.org/licenses/by/4.0/"
+              href="https://lightning.nsstc.nasa.gov/data/"
               target="_blank"
               rel="noopener"
             >
-              Creative Commons Attribution
+              NASA Earth Data
             </Link>
+            {"."}
           </Typography>
         </DialogContent>
         <DialogActions>
