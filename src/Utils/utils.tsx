@@ -4,12 +4,12 @@ import { RESOLUTIONS, CONFIGURATIONS } from "../state/Config";
 export const getScreenConfiguration = (width: number, height: number) => {
   // Small screens
   if (width <= RESOLUTIONS.SMALL) {
-    return CONFIGURATIONS["small"];
+    return CONFIGURATIONS["phone_portrait"];
   }
 
   // Phone in landscape
   if (width <= RESOLUTIONS.MEDIUM && width > height) {
-    return CONFIGURATIONS["landscape"];
+    return CONFIGURATIONS["phone_landscape"];
   }
 
   if (width <= RESOLUTIONS.LARGE && width > height) {
@@ -28,7 +28,7 @@ export const getScreenConfiguration = (width: number, height: number) => {
     return CONFIGURATIONS["extraLarge"];
   }
 
-  return CONFIGURATIONS["small"];
+  return CONFIGURATIONS["extraLarge"];
 };
 
 export const latlonToVec3 = (

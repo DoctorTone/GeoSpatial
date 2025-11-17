@@ -19,8 +19,11 @@ export const TARGET_POSITION = {
 };
 
 export const CONFIGURATIONS = {
-  small: new Vector3(0, 0.5, 3),
-  landscape: new Vector3(0, 0.5, 3),
+  phone_portrait: new Vector3(0, 0, 30),
+  phone_landscape: new Vector3(0, 0, 20),
+  ipad_portrait: new Vector3(0, 0, 20),
+  ipad_landscape: new Vector3(0, 0, 20),
+  tablet: new Vector3(0, 0, 20),
   large: new Vector3(0, 0.5, 3),
   extraLarge: new Vector3(0, 0, 20),
 };

@@ -1,4 +1,3 @@
-import Typography from "@mui/material/Typography";
 import BoltIcon from "@mui/icons-material/Bolt";
 
 const Title = () => {
