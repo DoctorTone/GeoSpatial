@@ -1,5 +1,4 @@
-import { useMemo } from "react";
-import { AdditiveBlending, BackSide, ShaderMaterial } from "three";
+import { BackSide } from "three";
 import { EARTH } from "../state/Config";
 
 const Glow = () => {
