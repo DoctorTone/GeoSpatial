@@ -5,26 +5,28 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import useStore from "../state/store";
 
-const RotateSwitch = styled(Switch)({
+const EquatorSwitch = styled(Switch)({
   [`& .${switchClasses.track}`]: {
     backgroundColor: "yellow",
   },
 });
 
-const Rotate = () => {
-  const rotate = useStore((state) => state.autoRotate);
-  const setAutoRotate = useStore((state) => state.setAutoRotate);
+const Equator = () => {
+  const showEquator = useStore((state) => state.showEquator);
+  const setShowEquator = useStore((state) => state.setShowEquator);
 
   const onToggle = (event: ChangeEvent<HTMLInputElement>) => {
-    setAutoRotate(event.target.checked);
+    setShowEquator(event.target.checked);
   };
 
   return (
-    <div id="rotate" className="panel">
+    <div id="equator" className="panel">
       <FormGroup>
         <FormControlLabel
-          control={<RotateSwitch checked={rotate} onChange={onToggle} />}
-          label="Rotate"
+          control={
+            <EquatorSwitch checked={showEquator} onChange={onToggle} />
+          }
+          label="Equator"
           labelPlacement="start"
         />
       </FormGroup>
@@ -32,4 +34,4 @@ const Rotate = () => {
   );
 };
 
-export default Rotate;
+export default Equator;

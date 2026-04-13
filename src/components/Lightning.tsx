@@ -9,6 +9,7 @@ import {
 } from "three";
 import { latlonToVec3 } from "../Utils/utils";
 import { EARTH } from "../state/Config";
+import useStore from "../state/store";
 
 interface LightningProps {
   data: {
@@ -22,6 +23,7 @@ const lifespan = 0.6;
 const spawnMultiplier = 0.8;
 
 const Lightning = ({ data }: LightningProps) => {
+  const animate = useStore((state) => state.animatePoints);
   const { positions, weights, weightSum } = useMemo(() => {
     const pos: Vector3[] = [];
     const wts: number[] = [];
@@ -123,6 +125,7 @@ const Lightning = ({ data }: LightningProps) => {
   let writePtr = 0;
   useFrame(({ clock }) => {
     if (!geoRef.current) return;
+    if (!animate) return;
     const time = clock.getElapsedTime();
     (material.uniforms.uTime as any).value = time;
 

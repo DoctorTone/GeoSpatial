@@ -1,4 +1,6 @@
+import Animate from "./Animate";
 import Copyright from "../UI/Copyright";
+import Equator from "./Equator";
 import Info from "./Info";
 import Rotate from "./Rotate";
 import TimePeriod from "./TimePeriod";
@@ -10,6 +12,8 @@ const UI = () => {
       <Copyright />
       <Info />
       <Rotate />
+      <Equator />
+      <Animate />
       <TimePeriod />
       <Title />
     </>
