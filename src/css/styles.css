@@ -34,11 +34,11 @@ body {
   right: 2%;
 }
 #equator {
-  top: 22%;
+  top: 20%;
   right: 2%;
 }
 #animate {
-  top: 29%;
+  top: 25%;
   right: 2%;
 }
 #time {
@@ -54,7 +54,9 @@ body {
   letter-spacing: 2px;
 
   /* soft glow */
-  text-shadow: 0 0 6px rgba(0, 170, 255, 0.8), 0 0 12px rgba(0, 170, 255, 0.6),
+  text-shadow:
+    0 0 6px rgba(0, 170, 255, 0.8),
+    0 0 12px rgba(0, 170, 255, 0.6),
     0 0 24px rgba(0, 170, 255, 0.4);
 }
 #title {
