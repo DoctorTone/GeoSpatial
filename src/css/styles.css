@@ -67,6 +67,15 @@ body {
   #time {
     top: 2%;
   }
+  #rotate {
+    top: 12.5%;
+  }
+  #equator {
+    top: 21%;
+  }
+  #animate {
+    top: 29%;
+  }
 }
 
 @media (min-width: 900px) and (orientation: portrait) {
