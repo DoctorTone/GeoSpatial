@@ -22,6 +22,8 @@ function App() {
           enablePan={INTERACTIONS.PAN}
           enableRotate={INTERACTIONS.ROTATE}
           enableDamping={true}
+          minDistance={15}
+          maxDistance={100}
           target={[TARGET_POSITION.X, TARGET_POSITION.Y, TARGET_POSITION.Z]}
         />
       </Canvas>
